@@ -21,8 +21,7 @@ const NavBar = () => {
                     shadowRadius: 16,
                     borderTopLeftRadius: 12,
                     borderTopRightRadius: 12,
-                    border: 'none',
-                    
+                    border: 'none'
                 },
             }}
         >

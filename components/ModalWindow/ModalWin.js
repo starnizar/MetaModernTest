@@ -1,41 +1,39 @@
-import React, { useState } from 'react';
-import { Text, View, StyleSheet, Modal, Pressable } from 'react-native';
+import React from 'react';
+import { Text, View, StyleSheet, Modal, Button, Image } from 'react-native';
 
-const ModalWindow = () => {
-    const [modalVisibility, setModalVisibility] = useState(false);
+const ModalWindow = ({modalVisibility, setModalVisibility}) => {
 
-    return <View>
-        <Modal
-            animationType='slide'
-            transparent={true}
-            visible={modalVisibility}
-            onRequestClose={()=>setModalVisibility(!modalVisibility)}
-        >
-            <View
-                style={styles.centeredView}
-            >
-                <Pressable
-                    onPress={() => setModalVisibility(!modalVisibility)}
-                >
-                    <Text>Touch me to HIDE modal window!</Text>
-                </Pressable>
+    return  <Modal
+        animationType='fade'
+        transparent={true}
+        visible={modalVisibility.showModal}
+        onRequestClose={()=>setModalVisibility({showModal:false, setBlur:null})}
+    >   
+        <View style={styles.centeredView}>
+            <View style={styles.mdodalBox}>
+                <Image
+                    style={{width:78.58, height:52.75,}}
+                />
+                <Button
+                    style={{width:146}}
+                    title='OK'
+                    onPress={() => setModalVisibility({showModal:false, setBlur:null})}
+                />         
             </View>
-        </Modal>
-        <Pressable
-            onPress={() => setModalVisibility(true)}
-        >
-            <Text>Touch me to SHOW modal window!</Text>
-        </Pressable>
-    </View>
+        </View>       
+    </Modal>
 };
 
 const styles = StyleSheet.create({
     centeredView: {
-        flex: 1,
+        flex:1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
-      }
+    },
+        mdodalBox:{
+            border:'1px solid white',
+            borderRadius:16,
+    },
 });
 
 export default ModalWindow;
