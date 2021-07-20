@@ -39,7 +39,6 @@ const Home = ({navigation}) => {
         for(let i=0; i<copters.length;i++){
             if(copters[i].rate >= 4){
                 theBest.push(copters[i]);
-                console.log(theBest);
             };
         };
         setShowCopters([...theBest])

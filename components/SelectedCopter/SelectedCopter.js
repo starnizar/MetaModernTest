@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet,Pressable, Image, TextInput, ScrollView, KeyboardAvoidingView } from 'react-native';
 import ModalWindow from '../ModalWindow/ModalWin';
 import { BlurView } from 'expo-blur';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const SelectedCopter = (props) => {
 
@@ -14,10 +15,7 @@ const SelectedCopter = (props) => {
                 style={{paddingHorizontal:17, paddingVertical:13}}
                 onPress={()=>props.navigation.goBack()}
             >
-                <Image
-                    style={{width:8.25, height:16.25}}
-                    source={require('../../assets/icons/LeftArrow.png')}
-                />
+                <Icon name='chevron-left' size={24} color='#1F1F1F'/>
             </Pressable>   
         </View>
             <ScrollView showsVerticalScrollIndicator={false} style={{width:'100%'}}>
