@@ -31,7 +31,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
         mdodalBox:{
-            border:'1px solid white',
+            borderWidth:1,
+            borderStyle:'solid',
+            borderColor:'white',
             borderRadius:16,
     },
 });
