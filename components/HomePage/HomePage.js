@@ -66,7 +66,7 @@ const Home = ({navigation}) => {
                 source={require('../../assets/icons/Burger.png')}
             />
         </View>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.content}>
                     <View
                         style={{
@@ -161,7 +161,8 @@ const Home = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container:{
-        padding:16,
+        
+        paddingHorizontal:16,
         width: '100%',
         height: '100%',
         backgroundColor:'#F8F8F8'

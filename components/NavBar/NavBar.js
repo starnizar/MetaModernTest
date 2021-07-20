@@ -17,11 +17,11 @@ const NavBar = () => {
                 style:{
                     height: 100,
                     shadowOffset:{width:2, height:2},
-                    shadowColor:'rgba(0, 0, 0, 0.15)',
+                    shadowColor:'rgb(0, 0, 0)',
+                    shadowOpacity:0.15,
                     shadowRadius: 16,
                     borderTopLeftRadius: 12,
                     borderTopRightRadius: 12,
-                    border: 'none'
                 },
             }}
         >
