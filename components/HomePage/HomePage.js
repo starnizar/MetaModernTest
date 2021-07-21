@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     selectedChip:{
         textAlign:'center',
         width:'15%',
-        minWidth:77,
+        minWidth:78,
         height:46,
         borderWidth:1,
         borderStyle:'solid',
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     chips:{
         textAlign:'center',
         width:'15%',
-        minWidth:77,
+        minWidth:78,
         height:46,
         borderWidth:1,
         borderStyle:'solid',
