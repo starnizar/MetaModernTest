@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet,Pressable, Image, TextInput, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet,Pressable, TextInput, ScrollView, KeyboardAvoidingView, Image } from 'react-native';
 import ModalWindow from '../ModalWindow/ModalWin';
 import { BlurView } from 'expo-blur';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -24,54 +24,60 @@ const SelectedCopter = (props) => {
                         style={{width:343, height:281, marginBottom:24}}
                         source={chosenCopter.img}
                     />
+                    <View>
+                        <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#1F1F1F'}}>{chosenCopter.type}</Text>
+                        <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:28, lineHeight:36, color:'#1F1F1F'}}>{chosenCopter.name}</Text>
+                        <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:20, lineHeight:24, color:'#317AE8', marginTop:8, marginBottom:12}}>{`${chosenCopter.price} $`}</Text>
+                        <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#939399', marginBottom:36}}>{chosenCopter.description}</Text>
+                    </View>
+                    <View style={{width:'100%', alignItems:'center'}}>
+                        <TextInput
+                            keyboardAppearance='default'
+                            style={{
+                                width:'100%',
+                                maxWidth:500,
+                                paddingVertical:8,
+                                borderBottomWidth:1,
+                                borderBottomColor:'#E7E7E7',
+                                borderStyle:'solid',
+                                marginBottom:24,
+                                fontSize:16,
+                                lineHeight:22,
+                                fontFamily:'Lato'
+                            }}
+                            placeholder='Имя'
+                            placeholderTextColor='#939399'
+                        />
+                        <TextInput
+                            style={{
+                                width:'100%',
+                                maxWidth:500,
+                                paddingVertical:8,
+                                borderBottomWidth:1,
+                                borderBottomColor:'#E7E7E7',
+                                borderStyle:'solid',
+                                marginBottom:24,
+                                fontSize:16,
+                                lineHeight:22,
+                                fontFamily:'Lato'
+                            }}
+                            keyboardType='phone-pad'
+                            defaultValue='+375 (__)-___-__-__'
+                        />
+                        <Pressable
+                            style={{
+                                backgroundColor:'#317AE8',
+                                width:'100%',
+                                maxWidth:300,
+                                borderRadius:8,
+                            }}
+                            onPress={() => setModalVisibility({showModal:true, setBlur:StyleSheet.absoluteFill})}
+                        >
+                            <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#FFFFFF', textAlign:'center', paddingVertical:12}}>Заказать</Text>
+                        </Pressable>
+                    </View>
                 </View>
-                <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#1F1F1F'}}>{chosenCopter.type}</Text>
-                <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:28, lineHeight:36, color:'#1F1F1F'}}>{chosenCopter.name}</Text>
-                <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:20, lineHeight:24, color:'#317AE8', marginTop:8, marginBottom:12}}>{`${chosenCopter.price} $`}</Text>
-                <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#939399', marginBottom:36}}>{chosenCopter.description}</Text>
-                <TextInput
-                    keyboardAppearance='default'
-                    style={{
-                        width:'100%',
-                        paddingVertical:8,
-                        borderBottomWidth:1,
-                        borderBottomColor:'#E7E7E7',
-                        borderStyle:'solid',
-                        marginBottom:24,
-                        fontSize:16,
-                        lineHeight:22,
-                        fontFamily:'Lato'
-                    }}
-                    placeholder='Имя'
-                    placeholderTextColor='#939399'
-                />
-                <TextInput
-                    style={{
-                        width:'100%',
-                        paddingVertical:8,
-                        borderBottomWidth:1,
-                        borderBottomColor:'#E7E7E7',
-                        borderStyle:'solid',
-                        marginBottom:24,
-                        fontSize:16,
-                        lineHeight:22,
-                        fontFamily:'Lato'
-                    }}
-                    keyboardType='phone-pad'
-                    defaultValue='+375 (__)-___-__-__'
-                />
-                <View style={{width:'100%', alignItems:'center'}}>
-                    <Pressable
-                        style={{
-                            backgroundColor:'#317AE8',
-                            width:'100%',
-                            borderRadius:8,
-                        }}
-                        onPress={() => setModalVisibility({showModal:true, setBlur:StyleSheet.absoluteFill})}
-                    >
-                        <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#FFFFFF', textAlign:'center', paddingVertical:12}}>Заказать</Text>
-                    </Pressable>
-                </View>
+                
             </ScrollView>
             <BlurView intensity={95} tint='dark' style={modalVisibility.setBlur}>
                 <ModalWindow modalVisibility={modalVisibility} setModalVisibility={setModalVisibility}/>
@@ -86,7 +92,7 @@ const styles = StyleSheet.create({
         height: '100%',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        padding:16,
+        padding:'2%',
     },
 });
 

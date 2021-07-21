@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Image, ScrollView, SafeAreaView, StatusBar } from 'react-native';
-import { color } from 'react-native-reanimated';
 
 const Home = ({navigation}) => {
 
@@ -73,8 +72,9 @@ const Home = ({navigation}) => {
                             alignItems:'flex-end',
                             justifyContent:'center',
                             backgroundColor:'#317AE8',
-                            width:343,
-                            height:164,
+                            width:'60%',
+                            maxWidth: 450,
+                            minWidth: 340,
                             border:'0 solid #317AE8',
                             borderRadius:20,
                             shadowColor:'rgb(0, 0, 0)',
@@ -93,31 +93,33 @@ const Home = ({navigation}) => {
                             source={require(`../../assets/copters/PromoCopter.png`)}
                         />
                     </View>
-                    <View style={{width:'100%', flexDirection:'row', justifyContent:'space-between', marginVertical:30}}>
-                        <Pressable
-                            style={chipsStyle.all}
-                            onPress={showAll}
-                        >
-                            <Text style={[styles.chipsText, {color:chipsStyle.allText}]}>All</Text>
-                        </Pressable>
-                        <Pressable
-                            style={chipsStyle.cheap}
-                            onPress={showCheap}
-                        >
-                            <Text style={[styles.chipsText, {color:chipsStyle.cheapText}]}>Cheap</Text>
-                        </Pressable>
-                        <Pressable
-                            style={chipsStyle.best}
-                            onPress={showBest}
-                        >
-                            <Text style={[styles.chipsText, {color:chipsStyle.bestText}]}>Best</Text>
-                        </Pressable>
-                        <Pressable
-                            style={chipsStyle.fast}
-                            onPress={showFast}
-                        >
-                            <Text style={[styles.chipsText, {color:chipsStyle.fastText}]}>Fast</Text>
-                        </Pressable>
+                    <View style={{width:'100%', maxWidth:650}}>
+                        <View style={{flexDirection:'row', justifyContent:'space-between', marginVertical:30}}>
+                            <Pressable
+                                style={chipsStyle.all}
+                                onPress={showAll}
+                            >
+                                <Text style={[styles.chipsText, {color:chipsStyle.allText}]}>All</Text>
+                            </Pressable>
+                            <Pressable
+                                style={chipsStyle.cheap}
+                                onPress={showCheap}
+                            >
+                                <Text style={[styles.chipsText, {color:chipsStyle.cheapText}]}>Cheap</Text>
+                            </Pressable>
+                            <Pressable
+                                style={chipsStyle.best}
+                                onPress={showBest}
+                            >
+                                <Text style={[styles.chipsText, {color:chipsStyle.bestText}]}>Best</Text>
+                            </Pressable>
+                            <Pressable
+                                style={chipsStyle.fast}
+                                onPress={showFast}
+                            >
+                                <Text style={[styles.chipsText, {color:chipsStyle.fastText}]}>Fast</Text>
+                            </Pressable>
+                        </View>
                     </View>
                     <View style={{width:'100%'}}>
                         <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:20, lineHeight:24, color:'#1F1F1F', marginBottom:20}}>{copterFilter}</Text>
@@ -161,7 +163,7 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
     container:{
         
-        paddingHorizontal:16,
+        paddingHorizontal:'1%',
         width: '100%',
         height: '100%',
         backgroundColor:'#F8F8F8'
@@ -182,7 +184,8 @@ const styles = StyleSheet.create({
     },
     selectedChip:{
         textAlign:'center',
-        width:78,
+        width:'15%',
+        minWidth:75,
         height:46,
         borderWidth:1,
         borderStyle:'solid',
@@ -193,12 +196,13 @@ const styles = StyleSheet.create({
     },
     chips:{
         textAlign:'center',
-        width:78,
+        width:'15%',
+        minWidth:75,
         height:46,
         borderWidth:1,
         borderStyle:'solid',
         borderColor:'#E7E7E7',
-        borderRadius:12
+        borderRadius:12,
     },
     chipsText:{
         textAlign:'center',
@@ -215,7 +219,7 @@ const styles = StyleSheet.create({
         borderStyle:'solid',
         borderColor:'#E7E7E7',
         borderRadius:12,
-        marginRight:18
+        marginHorizontal:9
     },
 });
 
