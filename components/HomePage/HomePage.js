@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
         width:'60%',
         maxWidth: 450,
         minWidth: 340,
-        border:'0 solid #317AE8',
+        borderWidth:0,
         borderRadius:20,
         shadowColor:'rgb(0, 0, 0)',
         shadowOffset:{width:2, height:2},

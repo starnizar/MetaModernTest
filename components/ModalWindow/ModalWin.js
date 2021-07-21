@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, Modal, Pressable, Image } from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 const ModalWindow = ({modalVisibility, setModalVisibility}) => {
     return  <Modal
@@ -11,12 +11,12 @@ const ModalWindow = ({modalVisibility, setModalVisibility}) => {
     >   
         <View style={styles.centeredView}>
             <View style={styles.mdodalBox}>
-                <Image
+                {/* <Image
                     style={{width:78.58, height:52.75}}
                     source={require('../../assets/icons/Deliver.png')}
-                />
-                {/* <Icon name='truck' size={92} color='#317AE8'/> */}
-                <Text style={styles.acceptedText}>Ваш заказ принят</Text>
+                /> */}
+                <Icon name={modalVisibility.iconName} size={92} color={modalVisibility.color}/>
+                <Text style={styles.acceptedText}>{modalVisibility.message}</Text>
                 <Pressable 
                     style={styles.okButton}
                     onPress={() => setModalVisibility({showModal:false, setBlur:null})}
@@ -43,12 +43,13 @@ const styles = StyleSheet.create({
         borderRadius:16,
     },
     acceptedText:{
+        textAlign:'center',
         fontFamily:'Lato',
         fontWeight:'normal',
         fontSize:16,
         lineHeight:22,
         color:'#939399',
-        marginVertical:28
+        marginVertical:15
     },
     okButton:{
         backgroundColor:'#317AE8',

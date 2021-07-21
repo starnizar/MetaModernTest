@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet,Pressable, TextInput, ScrollView, KeyboardAvoidingView, Image } from 'react-native';
+import { View, Text, StyleSheet,Pressable, TextInput, ScrollView, KeyboardAvoidingView, Image, Vibration, Alert } from 'react-native';
 import ModalWindow from '../ModalWindow/ModalWin';
 import { BlurView } from 'expo-blur';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -7,10 +7,23 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const SelectedCopter = (props) => {
 
     const chosenCopter = props.route.params.copter;
+    const [nameInput, setNameInput] = useState('');
+    const [phoneInput, setPhoneInput] = useState('');
     const [modalVisibility, setModalVisibility] = useState({showModal:false, setBlur:null});
+    const PATTERN = [0, 600];
+
+    const order = () => {
+        if(nameInput.trim() && phoneInput.trim() && phoneInput.length === 18){
+            Vibration.vibrate([200]);
+            setModalVisibility({showModal:true, setBlur:StyleSheet.absoluteFill, iconName:'truck', message:'Ваш заказ принят', color:'#317AE8'});
+        } else {
+            Vibration.vibrate(PATTERN);
+            setModalVisibility({showModal:true, setBlur:StyleSheet.absoluteFill, iconName:'sad-cry', message:'Укажите имя и корректный \n номер телефона', color:'#317AE8'});
+        }
+    };
 
     return <KeyboardAvoidingView behavior='padding' style={styles.container}>
-        <View style={{width:'100%', alignItems:'flex-start', marginTop:38}}>
+        <View style={{width:'100%', alignItems:'flex-start', marginTop:38}}>    
             <Pressable
                 style={{paddingHorizontal:17, paddingVertical:13}}
                 onPress={()=>props.navigation.goBack()}
@@ -32,19 +45,20 @@ const SelectedCopter = (props) => {
                     </View>
                     <View style={{width:'100%', alignItems:'center'}}>
                         <TextInput
-                            keyboardAppearance='default'
                             style={styles.nameInput}
                             placeholder='Имя'
                             placeholderTextColor='#939399'
+                            onChangeText={(value) => setNameInput(value)}
                         />
                         <TextInput
                             style={styles.phoneInput}
                             keyboardType='phone-pad'
-                            defaultValue='+375 (__)-___-__-__'
+                            defaultValue='+375(__)-___-__-__'
+                            onChangeText={(value) => setPhoneInput(value)}
                         />
                         <Pressable
                             style={styles.orderButton}
-                            onPress={() => setModalVisibility({showModal:true, setBlur:StyleSheet.absoluteFill})}
+                            onPress={order}
                         >
                             <Text style={styles.orderButtonText}>Заказать</Text>
                         </Pressable>
