@@ -25,55 +25,28 @@ const SelectedCopter = (props) => {
                         source={chosenCopter.img}
                     />
                     <View>
-                        <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#1F1F1F'}}>{chosenCopter.type}</Text>
-                        <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:28, lineHeight:36, color:'#1F1F1F'}}>{chosenCopter.name}</Text>
-                        <Text style={{fontFamily:'Lato', fontWeight:'bold', fontSize:20, lineHeight:24, color:'#317AE8', marginTop:8, marginBottom:12}}>{`${chosenCopter.price} $`}</Text>
-                        <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#939399', marginBottom:36}}>{chosenCopter.description}</Text>
+                        <Text style={styles.copterTypeText}>{chosenCopter.type}</Text>
+                        <Text style={styles.copterNameText}>{chosenCopter.name}</Text>
+                        <Text style={styles.copterPriceText}>{`${chosenCopter.price} $`}</Text>
+                        <Text style={styles.copterDescription}>{chosenCopter.description}</Text>
                     </View>
                     <View style={{width:'100%', alignItems:'center'}}>
                         <TextInput
                             keyboardAppearance='default'
-                            style={{
-                                width:'100%',
-                                maxWidth:500,
-                                paddingVertical:8,
-                                borderBottomWidth:1,
-                                borderBottomColor:'#E7E7E7',
-                                borderStyle:'solid',
-                                marginBottom:24,
-                                fontSize:16,
-                                lineHeight:22,
-                                fontFamily:'Lato'
-                            }}
+                            style={styles.nameInput}
                             placeholder='Имя'
                             placeholderTextColor='#939399'
                         />
                         <TextInput
-                            style={{
-                                width:'100%',
-                                maxWidth:500,
-                                paddingVertical:8,
-                                borderBottomWidth:1,
-                                borderBottomColor:'#E7E7E7',
-                                borderStyle:'solid',
-                                marginBottom:24,
-                                fontSize:16,
-                                lineHeight:22,
-                                fontFamily:'Lato'
-                            }}
+                            style={styles.phoneInput}
                             keyboardType='phone-pad'
                             defaultValue='+375 (__)-___-__-__'
                         />
                         <Pressable
-                            style={{
-                                backgroundColor:'#317AE8',
-                                width:'100%',
-                                maxWidth:300,
-                                borderRadius:8,
-                            }}
+                            style={styles.orderButton}
                             onPress={() => setModalVisibility({showModal:true, setBlur:StyleSheet.absoluteFill})}
                         >
-                            <Text style={{fontFamily:'Lato', fontWeight:'normal', fontSize:16, lineHeight:22, color:'#FFFFFF', textAlign:'center', paddingVertical:12}}>Заказать</Text>
+                            <Text style={styles.orderButtonText}>Заказать</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -93,6 +66,76 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         padding:'2%',
+    },
+    copterTypeText:{
+        fontFamily:'Lato',
+        fontWeight:'normal',
+        fontSize:16,
+        lineHeight:22,
+        color:'#1F1F1F'
+    },
+    copterNameText:{
+        fontFamily:'Lato',
+        fontWeight:'bold',
+        fontSize:28,
+        lineHeight:36,
+        color:'#1F1F1F'
+    },
+    copterPriceText:{
+        fontFamily:'Lato',
+        fontWeight:'bold',
+        fontSize:20,
+        lineHeight:24,
+        color:'#317AE8',
+        marginTop:8,
+        marginBottom:12
+    },
+    copterDescription:{
+        fontFamily:'Lato',
+        fontWeight:'normal',
+        fontSize:16,
+        lineHeight:22,
+        color:'#939399',
+        marginBottom:36
+    },
+    nameInput:{
+        width:'100%',
+        maxWidth:500,
+        paddingVertical:8,
+        borderBottomWidth:1,
+        borderBottomColor:'#E7E7E7',
+        borderStyle:'solid',
+        marginBottom:24,
+        fontSize:16,
+        lineHeight:22,
+        fontFamily:'Lato'  
+    },
+    phoneInput:{
+        width:'100%',
+        maxWidth:500,
+        paddingVertical:8,
+        borderBottomWidth:1,
+        borderBottomColor:'#E7E7E7',
+        borderStyle:'solid',
+        marginBottom:24,
+        fontSize:16,
+        lineHeight:22,
+        fontFamily:'Lato'
+    },
+    orderButton:{
+        backgroundColor:'#317AE8',
+        width:'100%',
+        maxWidth:300,
+        borderRadius:8,
+    },
+    orderButtonText:{
+        fontFamily:'Lato',
+        fontWeight:'normal',
+        fontSize:16,
+        lineHeight:22,
+        color:'#FFFFFF',
+        textAlign:'center',
+        paddingVertical:12
     },
 });
 

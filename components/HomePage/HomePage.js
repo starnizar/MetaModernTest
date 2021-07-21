@@ -58,7 +58,7 @@ const Home = ({navigation}) => {
         <StatusBar barStyle='dark-content'/>
         <SafeAreaView style={{height:'100%'}}>
         <View style={styles.heading}>
-            <Text style={{fontFamily:'Lato', fontWeight:'800', fontSize:24, lineHeight:32, color:'#1F1F1F'}}>Quadrojoy</Text>
+            <Text style={styles.headerText}>Quadrojoy</Text>
             <Image
                 style={{width:28, height:28}}
                 source={require('../../assets/icons/Burger.png')}
@@ -66,23 +66,7 @@ const Home = ({navigation}) => {
         </View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.content}>
-                    <View
-                        style={{
-                            flexDirection:'row',
-                            alignItems:'flex-end',
-                            justifyContent:'center',
-                            backgroundColor:'#317AE8',
-                            width:'60%',
-                            maxWidth: 450,
-                            minWidth: 340,
-                            border:'0 solid #317AE8',
-                            borderRadius:20,
-                            shadowColor:'rgb(0, 0, 0)',
-                            shadowOffset:{width:2, height:2},
-                            shadowRadius:16,
-                            shadowOpacity:0.15,
-                        }}
-                    >
+                    <View style={styles.promoWrapper}>
                         <View style={{right:-45, top:-15}}>
                             <Text style={{fontFamily:'Lato', fontSize:14, fontWeight:'bold', lineHeight:17, color:'#FFFFFF'}}>Need for Speed</Text>
                             <Text style={{fontFamily:'Lato', fontSize:24, fontWeight:'800', lineHeight:32, color:'#FFFFFF'}}>UdoDron 3 Pro</Text>
@@ -181,6 +165,28 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'space-between',
         marginTop:10
+    },
+    headerText:{
+        fontFamily:'Lato',
+        fontWeight:'800',
+        fontSize:24,
+        lineHeight:32,
+        color:'#1F1F1F'
+    },
+    promoWrapper:{
+        flexDirection:'row',
+        alignItems:'flex-end',
+        justifyContent:'center',
+        backgroundColor:'#317AE8',
+        width:'60%',
+        maxWidth: 450,
+        minWidth: 340,
+        border:'0 solid #317AE8',
+        borderRadius:20,
+        shadowColor:'rgb(0, 0, 0)',
+        shadowOffset:{width:2, height:2},
+        shadowRadius:16,
+        shadowOpacity:0.15,
     },
     selectedChip:{
         textAlign:'center',
